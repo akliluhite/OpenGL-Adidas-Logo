@@ -3,7 +3,6 @@
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // Set color to black
     glColor3f(0.0f, 0.0f, 0.0f);
 
     // Block 1 (Left)
