@@ -1,111 +1,236 @@
-# Computer Graphics Project
+# README – Adidas Logo Rendering with OpenGL Transformations
 
-## Adidas Logo using OpenGL
+#  Project Title
 
-This project was developed using C++ and OpenGL/GLUT to draw the Adidas logo with polygon graphics.
-
----
-
-## Objective
-
-The main objective of this project is to understand:
-
-- Basic OpenGL programming
-- 2D graphics drawing
-- Polygon creation using QUADS
-- Team collaboration using GitHub
+Adidas Logo Rendering with Interactive Transformations and Hover Effect using OpenGL (GLUT)
 
 ---
 
-## Software Requirements
+#  Project Overview
 
-- C++
-- OpenGL
-- GLUT Library
-- CodeBlocks / Dev-C++ / Visual Studio
+This project demonstrates the rendering of the Adidas logo using OpenGL graphics primitives and interactive computer graphics concepts. The main objective of the project is to apply the fundamental concepts learned in Computer Graphics, including primitive drawing, RGB color handling, geometric transformations, keyboard interaction, and mouse-based hover effects.
+
+The Adidas logo is constructed using polygon primitives and displayed in a 2D coordinate system using GLUT. The project allows the user to interact with the logo in real time using keyboard controls for movement, rotation, and scaling. Additionally, a hover effect was implemented as a bonus feature, where the logo changes color dynamically when the mouse pointer moves over it.
 
 ---
 
-## Project Files
+#  Concepts Implemented
 
-```text
-main.cpp
-member1_left_block.cpp
-member2_middle_block.cpp
-member3_right_block.cpp
-README.md
+##  Basic Primitives
+
+The Adidas logo was created using OpenGL polygon primitives.
+
+### Primitive Used:
+- `GL_QUADS`
+
+Three quadrilateral blocks were used to form the three diagonal Adidas stripes.
+
+Each stripe is constructed using four vertices defined with normalized 2D coordinates.
+
+### Example:
+```cpp
+glBegin(GL_QUADS);
+    glVertex2f(-0.7f, -0.6f);
+    glVertex2f(-0.33f, -0.6f);
+    glVertex2f(-0.55f, -0.15f);
+    glVertex2f(-0.75f, -0.45f);
+glEnd();
 ```
 
 ---
 
-## Program Output
+##  Color Handling (RGB)
 
-The application displays:
+The project uses real-world Adidas branding colors with RGB values.
 
-- Adidas logo
-- Black logo blocks
-- White background
-- OpenGL rendering window
+### Colors Used:
 
----
+| Object | RGB Value |
+|---|---|
+| Adidas Logo | (0.0, 0.0, 0.0) |
+| Hover Logo Color | (1.0, 1.0, 1.0) |
+| Normal Background | (1.0, 1.0, 1.0) |
+| Hover Background | (0.0, 0.0, 0.0) |
 
-## Team Members and Contributions
+### Color Functions Used:
+```cpp
+glColor3f(0.0f, 0.0f, 0.0f);
+glColor3f(1.0f, 1.0f, 1.0f);
 
-| Member | Contribution |
-|--------|--------------|
-| Member 1 | Left logo block |
-| Member 2 | Middle logo block |
-| Member 3 | Right logo block and documentation |
-
----
-
-## Compilation
-
-### Linux
-
-```bash
-g++ main.cpp -lGL -lGLU -lglut -o output
-./output
+glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 ```
 
-### Windows
-
-Compile using:
-- CodeBlocks
-- Dev-C++
-- Visual Studio
-
-Make sure GLUT libraries are properly configured.
+These colors accurately represent Adidas’ real-world black-and-white branding style.
 
 ---
 
-## Concepts Used
+#  Transformations Applied
 
-- OpenGL Functions
-- GLUT Window Handling
-- 2D Coordinate System
-- Polygon Drawing
-- Graphics Rendering
+This project implements three important geometric transformations.
 
 ---
 
-## Future Enhancements
+##  Translation
 
-- Add animation
-- Add transformations
-- Add keyboard interaction
-- Add colorful effects
-- Create 3D version
+Translation is used to move the logo in different directions on the screen.
+
+### Function Used:
+```cpp
+glTranslatef(tx, ty, 0.0f);
+```
+
+### Keyboard Controls:
+
+| Key | Action |
+|---|---|
+| W | Move Up |
+| S | Move Down |
+| A | Move Left |
+| D | Move Right |
 
 ---
 
-## GitHub Collaboration
+##  Rotation
 
-This project is managed using GitHub.  
-Each team member contributed separately through commits and file updates.
+Rotation is used to rotate the logo around the Z-axis.
+
+### Function Used:
+```cpp
+glRotatef(angle, 0.0f, 0.0f, 1.0f);
+```
+
+### Keyboard Controls:
+
+| Key | Action |
+|---|---|
+| Q | Rotate Left |
+| E | Rotate Right |
 
 ---
 
-## Conclusion
+##  Scaling
 
-This project helped us understand the basics of computer graphics programming and collaborative software development using GitHub.
+Scaling changes the size of the Adidas logo.
+
+### Function Used:
+```cpp
+glScalef(scaleValue, scaleValue, 1.0f);
+```
+
+### Keyboard Controls:
+
+| Key | Action |
+|---|---|
+| + | Zoom In |
+| - | Zoom Out |
+
+---
+
+#  Interactive Keyboard Controls
+
+The project uses `glutKeyboardFunc()` for real-time interaction.
+
+### Keyboard Function:
+```cpp
+glutKeyboardFunc(keyboard);
+```
+
+### Complete Controls:
+
+| Key | Function |
+|---|---|
+| W | Move Up |
+| S | Move Down |
+| A | Move Left |
+| D | Move Right |
+| Q | Rotate Left |
+| E | Rotate Right |
+| + | Zoom In |
+| - | Zoom Out |
+| R | Reset Transformations |
+
+---
+
+#  Bonus Feature – Hover Effect
+
+An advanced hover effect was implemented as an additional creative feature beyond classroom examples.
+
+The project detects mouse movement using passive mouse motion and changes the appearance of the logo dynamically when the mouse moves over the logo area.
+
+---
+
+## Hover Effect Features
+
+### When Mouse Hovers Over Logo:
+- Background changes from white to black
+- Logo color changes from black to white
+
+### Mouse Detection Function:
+```cpp
+glutPassiveMotionFunc(passiveMotion);
+```
+
+### Hover Detection Logic:
+```cpp
+if (x > -0.8f && x < 0.8f &&
+    y > -0.7f && y < 0.9f)
+{
+    isHovered = true;
+}
+else {
+    isHovered = false;
+}
+```
+
+This feature improves interactivity and demonstrates event-driven graphics programming.
+
+---
+
+#  Implementation Method
+
+The implementation process followed these steps:
+
+1. OpenGL window initialization was performed using GLUT.
+2. Orthographic projection (`gluOrtho2D`) was used for 2D rendering.
+3. The Adidas logo was constructed using three quadrilateral polygons.
+4. RGB color handling was implemented for logo and background rendering.
+5. Transformations were applied in the following order:
+   - Translation
+   - Rotation
+   - Scaling
+6. Keyboard controls were added for interactive manipulation.
+7. Mouse hover detection was implemented using passive motion callbacks.
+8. `glutPostRedisplay()` was used to refresh the display after every interaction.
+
+---
+
+#  Challenges Faced
+
+Several challenges were encountered during development:
+
+- Correctly positioning vertices to accurately match the Adidas logo
+- Managing transformation order for proper rendering
+- Detecting hover areas accurately using mouse coordinates
+- Maintaining smooth interaction with keyboard controls
+- Ensuring scaling and movement did not move the logo outside the visible screen area
+
+---
+
+#  Group Work Division
+
+| Member | Responsibility |
+|---|---|
+| Tsigereda Mitiku | Left Stripe Block, Transformations,  Hover Effect, Keyboard Controls  |
+| Mahlet Bimr| Middle Stripe Block,Transformations , Hover Effect, Keyboard Controls |
+| Aklilu Abelgn | Right Stripe Block, Transformations, Hover Effect, Keyboard Controls |
+
+---
+
+#  Conclusion
+
+This project successfully demonstrates the practical application of important Computer Graphics concepts using OpenGL and GLUT. The implementation includes primitive drawing, RGB color handling, translation, rotation, scaling, keyboard interaction, and mouse hover effects.
+
+The addition of real-time transformations and hover interaction improves user engagement and provides a deeper understanding of graphical transformations and event-driven programming in OpenGL.
+
+The project fulfills all required assignment criteria and also includes advanced creative features for bonus marks.
