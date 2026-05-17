@@ -5,7 +5,7 @@ void display() {
 
     glColor3f(0.0f, 0.0f, 0.0f);
 
-    // Block 1 (Left)
+
     glBegin(GL_QUADS);
         glVertex2f(-0.7f, -0.6f);
         glVertex2f(-0.33f, -0.6f);
@@ -13,7 +13,7 @@ void display() {
         glVertex2f(-0.75f, -0.45f);
     glEnd();
 
-    // Block 2 (Middle)
+    
     glBegin(GL_QUADS);
         glVertex2f(-0.2f, -0.6f);
         glVertex2f(0.2f, -0.6f);
@@ -21,7 +21,7 @@ void display() {
         glVertex2f(-0.53f, 0.1f);
     glEnd();
 
-    // Block 3 (Right)
+   
     glBegin(GL_QUADS);
         glVertex2f(0.35f, -0.6f);
         glVertex2f(0.8f, -0.6f);
@@ -33,10 +33,10 @@ void display() {
 }
 
 void init() {
-    // Background color = white
+
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-    // Set coordinate system
+    
     gluOrtho2D(-1, 1, -1, 1);
 }
 
