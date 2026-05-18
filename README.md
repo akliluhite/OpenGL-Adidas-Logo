@@ -225,7 +225,16 @@ Several challenges were encountered during development:
 | Aklilu Abelgn | Right Stripe Block, Transformations, Hover Effect, Keyboard Controls |
 
 ---
+## How Middle stripe Program Works
 
+1. The program creates an OpenGL window using the GLUT library.
+2. Mahlet implemented the middle stripe of the Adidas logo using the GL_QUADS polygon primitive.
+3. RGB color functions are used to display the stripe in black color.
+4. Translation is applied to move the stripe using keyboard keys (W, A, S, D).
+5. Rotation and scaling transformations are implemented using Q, E, +, and - keys.
+6. A hover effect changes the stripe color to white and background to black when the mouse moves over the logo.
+7. The display continuously updates using glutPostRedisplay() to reflect user interactions in real time.
+   
 #  Conclusion
 
 This project successfully demonstrates the practical application of important Computer Graphics concepts using OpenGL and GLUT. The implementation includes primitive drawing, RGB color handling, translation, rotation, scaling, keyboard interaction, and mouse hover effects.
