@@ -220,7 +220,7 @@ Several challenges were encountered during development:
 |---|---|
 | Tsigereda Mitiku | Left Stripe Block, Transformations,  Hover Effect, Keyboard Controls  |
 | Mahlet Bimr| Middle Stripe Block,Transformations , Hover Effect, Keyboard Controls |
-| Aklilu Abelgn | Right Stripe Block, Transformations, Hover Effect, Keyboard Controls |
+| Aklilu Abelegn | Right Stripe Block, Transformations, Hover Effect, Keyboard Controls |
 
 ---
 ## How Left Stripe Program Works
@@ -242,6 +242,15 @@ Several challenges were encountered during development:
 6. A hover effect changes the stripe color to white and background to black when the mouse moves over the logo.
 7. The display continuously updates using glutPostRedisplay() to reflect user interactions in real time.
    
+   ##  How Right stripe  Program Works
+
+1. The program creates an OpenGL window using the GLUT library.
+2.Aklilu implemented the right stripe of the Adidas logo using the GL_QUADS polygon primitive.
+3. RGB color functions are used to display the stripe in black color with a white hover effect.
+4. Translation is applied to move the stripe using keyboard keys (W, A, S, D).
+5. Rotation and scaling transformations are implemented using Q, E, +, and - keys.
+6. A hover effect changes the stripe color to white and the background to black when the mouse moves over the logo.
+7. The display updates continuously using glutPostRedisplay() to show real-time transformations and hover interactions.
 #  Conclusion
 
 This project successfully demonstrates the practical application of important Computer Graphics concepts using OpenGL and GLUT. The implementation includes primitive drawing, RGB color handling, translation, rotation, scaling, keyboard interaction, and mouse hover effects.
