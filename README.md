@@ -244,7 +244,7 @@ Several challenges were encountered during development:
 ## How Right stripe Program Works
 
 1. The program creates an OpenGL window using the GLUT library.
-2.Aklilu implemented the right stripe of the Adidas logo using the GL_QUADS polygon primitive.
+2. Aklilu implemented the right stripe of the Adidas logo using the GL_QUADS polygon primitive.
 3. RGB color functions are used to display the stripe in black color with a white hover effect.
 4. Translation is applied to move the stripe using keyboard keys (W, A, S, D).
 5. Rotation and scaling transformations are implemented using Q, E, +, and - keys.
