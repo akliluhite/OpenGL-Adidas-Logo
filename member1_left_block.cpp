@@ -1,10 +1,18 @@
 #include <GL/glut.h>
 
-void display() {
+float angle = 0.0f;
+float scaleValue = 1.0f;
+float tx = 0.0f;
+float ty = 0.0f;
 
-    glClear(GL_COLOR_BUFFER_BIT);
+bool isHovered = false;
 
-    glColor3f(0.0f, 0.0f, 0.0f);
+void drawLogo() {
+
+    if (isHovered)
+        glColor3f(1.0f, 1.0f, 1.0f);
+    else
+        glColor3f(0.0f, 0.0f, 0.0f);
 
     glBegin(GL_QUADS);
         glVertex2f(-0.7f, -0.6f);
@@ -12,12 +20,72 @@ void display() {
         glVertex2f(-0.55f, -0.15f);
         glVertex2f(-0.75f, -0.45f);
     glEnd();
+}
+
+void display() {
+
+    if (isHovered)
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    else
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glLoadIdentity();
+
+    glTranslatef(tx, ty, 0.0f);
+    glRotatef(angle, 0.0f, 0.0f, 1.0f);
+    glScalef(scaleValue, scaleValue, 1.0f);
+
+    drawLogo();
 
     glFlush();
 }
 
+void keyboard(unsigned char key, int x, int y) {
+
+    switch (key) {
+
+        case 'a': tx -= 0.05f; break;
+        case 'd': tx += 0.05f; break;
+        case 'w': ty += 0.05f; break;
+        case 's': ty -= 0.05f; break;
+
+        case 'q': angle += 5.0f; break;
+        case 'e': angle -= 5.0f; break;
+
+        case '+': scaleValue += 0.1f; break;
+        case '-': scaleValue -= 0.1f; break;
+
+        case 'r':
+            angle = 0.0f;
+            scaleValue = 1.0f;
+            tx = 0.0f;
+            ty = 0.0f;
+            break;
+    }
+
+    glutPostRedisplay();
+}
+
+void passiveMotion(int mouseX, int mouseY) {
+
+    float x = (mouseX - 300) / 300.0f;
+    float y = -(mouseY - 200) / 200.0f;
+
+    if (x > -0.8f && x < 0.8f &&
+        y > -0.7f && y < 0.9f)
+    {
+        isHovered = true;
+    }
+    else {
+        isHovered = false;
+    }
+
+    glutPostRedisplay();
+}
+
 void init() {
-    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     gluOrtho2D(-1, 1, -1, 1);
 }
 
@@ -29,11 +97,15 @@ int main(int argc, char** argv) {
 
     glutInitWindowSize(700, 500);
 
-    glutCreateWindow("Member 1 - Left Stripe");
+    glutCreateWindow("Left Stripe");
 
     init();
 
     glutDisplayFunc(display);
+
+    glutKeyboardFunc(keyboard);
+
+    glutPassiveMotionFunc(passiveMotion);
 
     glutMainLoop();
 
