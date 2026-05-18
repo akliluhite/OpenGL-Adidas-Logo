@@ -111,7 +111,7 @@ int main(int argc, char** argv) {
 
     glutInitWindowSize(700, 500);
 
-    glutCreateWindow("Adidas Logo - Hover Effect");
+    glutCreateWindow("Adidas Logo");
 
     init();
 
