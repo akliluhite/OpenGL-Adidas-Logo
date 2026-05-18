@@ -4,7 +4,6 @@
 
 Adidas Logo Rendering with Interactive Transformations and Hover Effect using OpenGL (GLUT)
 
----
 
 #  Project Overview
 
@@ -12,7 +11,6 @@ This project demonstrates the rendering of the Adidas logo using OpenGL graphics
 
 The Adidas logo is constructed using polygon primitives and displayed in a 2D coordinate system using GLUT. The project allows the user to interact with the logo in real time using keyboard controls for movement, rotation, and scaling. Additionally, a hover effect was implemented as a bonus feature, where the logo changes color dynamically when the mouse pointer moves over it.
 
----
 
 #  Concepts Implemented
 
