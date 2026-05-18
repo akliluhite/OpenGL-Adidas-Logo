@@ -1,3 +1,6 @@
+###<img width="697" height="529" alt="AdidasLogo" src="https://github.com/user-attachments/assets/64baacac-6138-4185-93c6-5986625132fe" />
+
+
 # README – Adidas Logo Rendering with OpenGL Transformations
 
 #  Project Title
