@@ -122,8 +122,7 @@ glScalef(scaleValue, scaleValue, 1.0f);
 
 | Key | Action |
 |---|---|
-| + | Zoom In |
-| - | Zoom Out |
+| + | Zoom Out |
 
 ---
 
