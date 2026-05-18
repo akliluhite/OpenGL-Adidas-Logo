@@ -241,8 +241,7 @@ Several challenges were encountered during development:
 5. Rotation and scaling transformations are implemented using Q, E, +, and - keys.
 6. A hover effect changes the stripe color to white and background to black when the mouse moves over the logo.
 7. The display continuously updates using glutPostRedisplay() to reflect user interactions in real time.
-   
-   ##  How Right stripe  Program Works
+## How Right stripe Program Works
 
 1. The program creates an OpenGL window using the GLUT library.
 2.Aklilu implemented the right stripe of the Adidas logo using the GL_QUADS polygon primitive.
